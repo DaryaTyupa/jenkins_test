@@ -1,9 +1,12 @@
 import pytest
 from selenium.webdriver import Firefox
+from selenium.webdriver import FirefoxOptions
 
 
 @pytest.fixture(scope='session')
 def driver():
-    driver = Firefox('/home/darya/virtualenvs/selenium/lib/python3.7/site-packages/selenium/webdriver/firefox')
+    opts = FirefoxOptions()
+    opts.add_argument("--headless")
+    driver = Firefox(firefox_options=opts)
     yield driver
     driver.quit()
