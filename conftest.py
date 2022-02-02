@@ -7,6 +7,6 @@ from selenium.webdriver import FirefoxOptions
 def driver():
     opts = FirefoxOptions()
     opts.add_argument("--headless")
-    driver = Firefox(firefox_options=opts)
+    driver = Firefox(options=opts)
     yield driver
     driver.quit()
